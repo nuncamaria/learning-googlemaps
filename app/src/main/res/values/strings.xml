@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Street Hero</string>
+
+    <string name="landingview_button_label">Report</string>
+    <string name="landingview_infocard_location_title">Selecciona el lugar de la incidencia</string>
+    <string name="landingview_infocard_location_description">¡Ponte en el mapa! Escoje el punto exacto donde está la incidencia.</string>
+
+    <string name="mapview_toolbar_title">Selecciona el lugar de la incidencia</string>
 </resources>
