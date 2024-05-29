@@ -1,4 +1,4 @@
-package com.nuncamaria.improvingspaces.ui.theme
+package com.nuncamaria.streethero.ui.theme
 
 import androidx.compose.ui.unit.dp
 

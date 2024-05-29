@@ -1,4 +1,4 @@
-package com.nuncamaria.improvingspaces
+package com.nuncamaria.streethero
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,11 +1,9 @@
-package com.nuncamaria.improvingspaces.ui
+package com.nuncamaria.streethero.ui
 
 import android.Manifest
-import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,8 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Report
 import androidx.compose.material3.AlertDialog
@@ -39,31 +35,21 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.core.content.ContextCompat
-import com.nuncamaria.improvingspaces.R
-import com.nuncamaria.improvingspaces.ui.components.FloatingButton
-import com.nuncamaria.improvingspaces.ui.theme.AppColor
-import com.nuncamaria.improvingspaces.ui.theme.Spacing
-import com.nuncamaria.improvingspaces.ui.theme.Typography
-import com.nuncamaria.improvingspaces.ui.theme.glassRadialGradient
+import com.nuncamaria.streethero.LocationManager
+import com.nuncamaria.streethero.R
+import com.nuncamaria.streethero.ui.components.FloatingButton
+import com.nuncamaria.streethero.ui.navigation.MapView
+import com.nuncamaria.streethero.ui.theme.AppColor
+import com.nuncamaria.streethero.ui.theme.Spacing
+import com.nuncamaria.streethero.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LandingView(appState: AppState) {
     val ctx = LocalContext.current
 
-    val fineLocationPermissionGranted = ContextCompat.checkSelfPermission(
-        ctx,
-        Manifest.permission.ACCESS_FINE_LOCATION
-    ) == PackageManager.PERMISSION_GRANTED
-
-    val coarseLocationPermissionGranted = ContextCompat.checkSelfPermission(
-        ctx,
-        Manifest.permission.ACCESS_COARSE_LOCATION
-    ) == PackageManager.PERMISSION_GRANTED
-
     val permissionGranted =
-        remember { mutableStateOf(fineLocationPermissionGranted || coarseLocationPermissionGranted) }
+        remember { mutableStateOf(LocationManager.areLocationPermissionsGranted(ctx)) }
     val showAlertDialog = remember { mutableStateOf(false) }
 
     val permissionsLauncher = rememberLauncherForActivityResult(
@@ -72,7 +58,7 @@ fun LandingView(appState: AppState) {
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
                     permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
-                appState.navController.navigate("map") {
+                appState.navController.navigate(MapView.route) {
                     launchSingleTop = true
                 }
             }
@@ -186,11 +172,11 @@ private fun InfoCard(
         colors = CardDefaults.outlinedCardColors(containerColor = Color.White),
         elevation = CardDefaults.elevatedCardElevation()
     ) {
-        Row {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             if (inverted.not()) {
                 Image(
                     modifier = Modifier
-                        .size(Spacing.mega)
+                        .heightIn(max = Spacing.mega)
                         .weight(1F),
                     painter = image,
                     contentDescription = null,
@@ -201,7 +187,7 @@ private fun InfoCard(
 
             Column(
                 modifier = Modifier
-               //     .background(brush = glassRadialGradient, shape = RoundedCornerShape(Spacing.md))
+                    //     .background(brush = glassRadialGradient, shape = RoundedCornerShape(Spacing.md))
                     .heightIn(min = Spacing.mega)
                     .padding(horizontal = Spacing.lg, vertical = Spacing.md)
                     .weight(2F),
@@ -223,7 +209,7 @@ private fun InfoCard(
             if (inverted) {
                 Image(
                     modifier = Modifier
-                        .size(Spacing.mega)
+                        .heightIn(max = Spacing.mega)
                         .weight(1F),
                     painter = image,
                     contentDescription = null,

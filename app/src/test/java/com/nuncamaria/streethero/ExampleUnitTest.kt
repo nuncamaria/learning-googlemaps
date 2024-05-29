@@ -1,4 +1,4 @@
-package com.nuncamaria.improvingspaces
+package com.nuncamaria.streethero
 
 import org.junit.Test
 
