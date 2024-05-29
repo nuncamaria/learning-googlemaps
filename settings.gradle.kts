@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Improving Spaces"
+rootProject.name = "Street Hero"
 include(":app")

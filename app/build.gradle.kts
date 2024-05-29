@@ -1,15 +1,16 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.google.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
-    namespace = "com.nuncamaria.improvingspaces"
+    namespace = "com.nuncamaria.streethero"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.nuncamaria.improvingspaces"
+        applicationId = "com.nuncamaria.streethero"
         minSdk = 27
         targetSdk = 34
         versionCode = 1
@@ -36,10 +37,6 @@ android {
     }
     buildFeatures {
         compose = true
-        viewBinding = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
     }
     packaging {
         resources {
@@ -63,6 +60,8 @@ dependencies {
     implementation(libs.androidx.material.icons)
 
     implementation(libs.google.maps.compose)
+    implementation(libs.google.services.location)
+    implementation(libs.google.places)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
