@@ -14,7 +14,9 @@ import com.nuncamaria.streethero.ui.navigation.SurveyView
 import com.nuncamaria.streethero.ui.rememberAppState
 import com.nuncamaria.streethero.ui.survey.SurveyView
 import com.nuncamaria.streethero.ui.theme.ImprovingSpacesTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +30,11 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = appState.navController, startDestination = LandingView.route) {
 
                     composable(LandingView.route) {
-                        LandingView(appState)
+                        LandingView {
+                            appState.navController.navigate(MapView.route) {
+                                launchSingleTop = true
+                            }
+                        }
                     }
 
                     composable(MapView.route) {
