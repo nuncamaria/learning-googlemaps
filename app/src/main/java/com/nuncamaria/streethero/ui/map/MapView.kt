@@ -59,11 +59,10 @@ import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.nuncamaria.streethero.R
 import com.nuncamaria.streethero.ui.AppState
-import com.nuncamaria.streethero.ui.components.MapLocationBottomSheet
 import com.nuncamaria.streethero.ui.navigation.SurveyView
-import com.nuncamaria.streethero.ui.theme.AppColor
 import com.nuncamaria.streethero.ui.utils.centerOnLocation
 import com.nuncamaria.streethero.ui.utils.hasLocationPermission
+import com.nuncamaria.ui.components.MapLocationBottomSheet
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalPermissionsApi::class)
 @Composable
@@ -93,7 +92,7 @@ fun MapView(appState: AppState, viewModel: MapViewModel = hiltViewModel()) {
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = AppColor.Background
+                    containerColor = com.nuncamaria.ui.theme.AppColor.Background
                 )
             )
         },

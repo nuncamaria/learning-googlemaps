@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Street Hero"
 include(":app")
+include(":ui")

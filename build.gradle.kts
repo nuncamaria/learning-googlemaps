@@ -4,5 +4,6 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.google.mapsplatform.secrets.gradle.plugin) apply false
+    alias(libs.plugins.android.library) apply false
     id("com.google.dagger.hilt.android") version "2.51" apply false
 }

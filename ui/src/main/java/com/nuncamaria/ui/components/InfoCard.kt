@@ -1,4 +1,4 @@
-package com.nuncamaria.streethero.ui.components
+package com.nuncamaria.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,8 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
-import com.nuncamaria.streethero.ui.theme.Spacing
-import com.nuncamaria.streethero.ui.theme.Typography
 
 @Composable
 fun InfoCard(
@@ -36,7 +34,7 @@ fun InfoCard(
             if (inverted.not()) {
                 Image(
                     modifier = Modifier
-                        .heightIn(max = Spacing.mega)
+                        .heightIn(max = com.nuncamaria.ui.theme.Spacing.mega)
                         .weight(1F),
                     painter = image,
                     contentDescription = null,
@@ -47,8 +45,11 @@ fun InfoCard(
 
             Column(
                 modifier = Modifier
-                    .heightIn(min = Spacing.mega)
-                    .padding(horizontal = Spacing.lg, vertical = Spacing.md)
+                    .heightIn(min = com.nuncamaria.ui.theme.Spacing.mega)
+                    .padding(
+                        horizontal = com.nuncamaria.ui.theme.Spacing.lg,
+                        vertical = com.nuncamaria.ui.theme.Spacing.md
+                    )
                     .weight(2F),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = if (inverted.not()) Alignment.End else Alignment.Start
@@ -56,19 +57,19 @@ fun InfoCard(
                 Text(
                     text = title,
                     textAlign = if (inverted.not()) TextAlign.End else TextAlign.Start,
-                    style = Typography.titleMedium
+                    style = com.nuncamaria.ui.theme.Typography.titleMedium
                 )
                 Text(
                     text = description,
                     textAlign = if (inverted.not()) TextAlign.End else TextAlign.Start,
-                    style = Typography.bodyMedium
+                    style = com.nuncamaria.ui.theme.Typography.bodyMedium
                 )
             }
 
             if (inverted) {
                 Image(
                     modifier = Modifier
-                        .heightIn(max = Spacing.mega)
+                        .heightIn(max = com.nuncamaria.ui.theme.Spacing.mega)
                         .weight(1F),
                     painter = image,
                     contentDescription = null,

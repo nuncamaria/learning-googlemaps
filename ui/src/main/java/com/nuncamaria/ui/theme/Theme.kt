@@ -1,4 +1,4 @@
-package com.nuncamaria.streethero.ui.theme
+package com.nuncamaria.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

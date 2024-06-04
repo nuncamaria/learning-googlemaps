@@ -1,4 +1,4 @@
-package com.nuncamaria.streethero.ui.components
+package com.nuncamaria.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,24 +24,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.nuncamaria.streethero.ui.theme.AppColor
-import com.nuncamaria.streethero.ui.theme.Spacing
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun MapLocationBottomSheet(goNext: () -> Unit) {
+fun MapLocationBottomSheet(goNext: () -> Unit) {
     val sheetState = rememberModalBottomSheetState()
     val scope = rememberCoroutineScope()
     var showBottomSheet by remember { mutableStateOf(true) }
 
     Column {
-        HorizontalDivider(thickness = 2.dp, color = AppColor.Primary)
+        HorizontalDivider(thickness = 2.dp, color = com.nuncamaria.ui.theme.AppColor.Primary)
 
         Box(
             modifier = Modifier
-                .background(AppColor.Background)
-                .padding(Spacing.md)
+                .background(com.nuncamaria.ui.theme.AppColor.Background)
+                .padding(com.nuncamaria.ui.theme.Spacing.md)
         ) {
             FloatingButton(
                 icon = Icons.Default.LocationSearching,
@@ -52,20 +50,20 @@ internal fun MapLocationBottomSheet(goNext: () -> Unit) {
             }
         }
 
-        Spacer(modifier = Modifier.height(Spacing.lg))
+        Spacer(modifier = Modifier.height(com.nuncamaria.ui.theme.Spacing.lg))
     }
 
     if (showBottomSheet) {
         ModalBottomSheet(
             onDismissRequest = { showBottomSheet = false },
             sheetState = sheetState,
-            containerColor = AppColor.Background
+            containerColor = com.nuncamaria.ui.theme.AppColor.Background
         ) {
 
             Column(
-                modifier = Modifier.padding(horizontal = Spacing.md),
+                modifier = Modifier.padding(horizontal = com.nuncamaria.ui.theme.Spacing.md),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(Spacing.md)
+                verticalArrangement = Arrangement.spacedBy(com.nuncamaria.ui.theme.Spacing.md)
             ) {
 
                 Text(text = "¿Problemas encontrando la calle? Prueba ingresándola a mano.")
@@ -90,7 +88,7 @@ internal fun MapLocationBottomSheet(goNext: () -> Unit) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(Spacing.lg))
+            Spacer(modifier = Modifier.height(com.nuncamaria.ui.theme.Spacing.lg))
         }
     }
 }

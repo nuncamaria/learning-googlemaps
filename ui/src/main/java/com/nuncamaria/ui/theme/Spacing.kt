@@ -1,4 +1,4 @@
-package com.nuncamaria.streethero.ui.theme
+package com.nuncamaria.ui.theme
 
 import androidx.compose.ui.unit.dp
 

@@ -18,11 +18,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.nuncamaria.streethero.R
-import com.nuncamaria.streethero.ui.components.FloatingButton
-import com.nuncamaria.streethero.ui.components.InfoCard
-import com.nuncamaria.streethero.ui.theme.AppColor
-import com.nuncamaria.streethero.ui.theme.Spacing
-import com.nuncamaria.streethero.ui.theme.Typography
+import com.nuncamaria.ui.components.FloatingButton
+import com.nuncamaria.ui.components.InfoCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -47,25 +44,25 @@ fun LandingView(onClickContinue: () -> Unit) {
             }
         },
         floatingActionButtonPosition = FabPosition.Center,
-        containerColor = AppColor.Background
+        containerColor = com.nuncamaria.ui.theme.AppColor.Background
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
-                .padding(horizontal = Spacing.md),
-            verticalArrangement = Arrangement.spacedBy(Spacing.md)
+                .padding(horizontal = com.nuncamaria.ui.theme.Spacing.md),
+            verticalArrangement = Arrangement.spacedBy(com.nuncamaria.ui.theme.Spacing.md)
         ) {
             Column(
-                modifier = Modifier.padding(vertical = Spacing.md),
-                verticalArrangement = Arrangement.spacedBy(Spacing.s)
+                modifier = Modifier.padding(vertical = com.nuncamaria.ui.theme.Spacing.md),
+                verticalArrangement = Arrangement.spacedBy(com.nuncamaria.ui.theme.Spacing.s)
             ) {
                 Text(
                     text = "Tu voz para una vía pública mejor.",
-                    style = Typography.headlineLarge
+                    style = com.nuncamaria.ui.theme.Typography.headlineLarge
                 )
                 Text(
                     text = "Con Street Hero, puedes reportar problemas en la vía pública como baches, aceras dañadas o señales de tráfico defectuosas de manera rápida y sencilla.",
-                    style = Typography.bodyMedium
+                    style = com.nuncamaria.ui.theme.Typography.bodyMedium
                 )
             }
 

@@ -13,7 +13,7 @@ import com.nuncamaria.streethero.ui.navigation.MapView
 import com.nuncamaria.streethero.ui.navigation.SurveyView
 import com.nuncamaria.streethero.ui.rememberAppState
 import com.nuncamaria.streethero.ui.survey.SurveyView
-import com.nuncamaria.streethero.ui.theme.ImprovingSpacesTheme
+import com.nuncamaria.ui.theme.ImprovingSpacesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val appState = rememberAppState()
 
-            ImprovingSpacesTheme {
+            com.nuncamaria.ui.theme.ImprovingSpacesTheme {
                 NavHost(navController = appState.navController, startDestination = LandingView.route) {
 
                     composable(LandingView.route) {
